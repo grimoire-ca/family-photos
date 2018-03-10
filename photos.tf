@@ -13,5 +13,14 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "photos" {
-  acl    = "private"
+  acl = "private"
+
+  lifecycle_rule {
+    enabled = true
+
+    transition {
+      days          = 7
+      storage_class = "GLACIER"
+    }
+  }
 }
