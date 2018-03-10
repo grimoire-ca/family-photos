@@ -1,0 +1,17 @@
+terraform {
+  backend "s3" {
+    bucket = "terraform.grimoire"
+    key    = "photos.tfstate"
+    region = "ca-central-1"
+  }
+}
+
+provider "aws" {
+  version = "~> 1.11"
+
+  region = "ca-central-1"
+}
+
+resource "aws_s3_bucket" "photos" {
+  acl    = "private"
+}
