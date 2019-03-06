@@ -23,4 +23,8 @@ resource "aws_s3_bucket" "photos" {
       storage_class = "GLACIER"
     }
   }
+
+  tags {
+    Project = "family-photos"
+  }
 }
